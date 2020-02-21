@@ -1,0 +1,15 @@
+<h1><%= @cocktail.name %></h1>
+
+<ul>
+  <% @ingredients.each do |ingredient| %>
+  <li> <%= ingredient.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to "edit", edit_cocktail_path(params[:id]), class: "btn btn-primary" %>
+<br>
+<br>
+<%= link_to "Add/Edit Ingredients", new_cocktail_dose_path(params[:id]), class: "btn btn-primary" %>
+<br>
+<br>
+<%= link_to "<<", cocktails_path, class: "btn btn-primary" %>
