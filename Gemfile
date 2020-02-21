@@ -42,6 +42,11 @@ gem 'simple_form'
 
 gem 'rest-client'
 
+# secret key stuff
+gem 'dotenv-rails', groups: [:development, :test]
+
+# image and video hosting & management
+gem 'cloudinary', '~> 1.12.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
