@@ -1,26 +1,29 @@
+
+
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/lino-m-1234/image/upload/v1582296083/jez-timms-jIejftgdU3w-unsplash_vlhmsg.jpg);">
   <div class="container blockquote text-right">
     <h1><i class="fas fa-door-open"></i></h1>
     <h1>The Fridge opens it's <strong>doors <br> </strong> to <strong>make drinks not war</strong>!</h1>
     <p>You don't always need a drink but when you do ... you really do!</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <%= link_to "Add a Cocktail", new_cocktail_path, class: "btn btn-flat" %>
   </div>
 </div>
 
+<div class="container my-4">
 
+  <div class="container">
+    <% @cocktails.each do |cocktail| %>
+      <div class="row">
+        <div class="col-12">
+          <%= link_to cocktail_path(cocktail) do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>')">
+              <%= cocktail.name %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-
-
-
-<h1>The Fridge</h1>
-<br>
-<%= cl_image_tag("wumoesqo4uqmwahs8phk",
-      width: 400, height: 300, crop: :fill) %>
-<br>
-<%= link_to "Add a Cocktail", new_cocktail_path, class: "btn btn-primary" %>
-
-<ul>
-  <% @cocktails.each do |cocktail| %>
-  <li><%= link_to cocktail.name, cocktail_path(cocktail)%></li>
-  <% end %>
-</ul>
+</div>
